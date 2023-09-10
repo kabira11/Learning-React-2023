@@ -13,6 +13,6 @@
 - Compressing
 - Consistence Hashing
 - Code splitting
-- Differential Bundling -  support older browsers
+- Differential Bundling -  support older browsers (Adding this in package.json   "browserslist" : ["last 2 versions"])
 - Https also we can use
 - Tree shaking algo - remove unsed code
