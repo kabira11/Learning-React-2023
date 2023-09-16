@@ -1,34 +1,90 @@
 import React from 'react';
 import ReactDOM, { createRoot } from 'react-dom/client'
+import { resData } from './assets/data';
 
-//JSX - HTML Like or XML Like Syntax but it is not html inside JS
-// Js engine doesn't understand JSX 
-// Js engine understand ES6 (All version of ECMA Script)
-// Parcel is doing the reading and render (traspiled before it reaches js engine)
-// transpile means make code readable to js engine (Transpiling is done by parcel . Is parcel transpile ? NO)
-// Babel Is doing transpiling   
-const jsxHeading = <h1 id = "heading">Hello React </h1>
+/*
+* Header
+*   - Logo
+*   - nav Item
+* Body
+*   - search
+*   - Restaurant Container
+*       - RestaurantCard
+*           - Img
+*           - Name of Res, Ratings, cuisine, delivery time
+* Footer
+*   - Copyright
+*   - Links
+*   - Address
+*   - Contact
+*/
 
-//React Functional component
-const HeadingComp = () => {
+const HeaderComponent = () => {
     return (
-        <div className="container">
-            <h2>Heading of React</h2>
-            <TileComponent/>
+        <div className="header">
+            <img className='logo' src='https://img.freepik.com/free-vector/food-shopping-logo-template-design_460848-10299.jpg'/>
+            <div className='nav-items'>
+                <ul>
+                    <li>
+                        Home
+                    </li>
+                    <li>
+                        About
+                    </li>
+                    <li>
+                        Contact
+                    </li>
+                    <li>
+                        Add Card
+                    </li>
+                </ul>
+            </div>
         </div>
     )
 }
 
-const TileComponent = () => {
+const RestaurantCards = (props) => {
+    const {resDetails } = props
+    const { card } = resDetails
     return (
-        <div className="container">
-            <h2>Title of React</h2>
+            <div className='res-card'>
+                <h2>{card.card.info.name}</h2>
+                <img className="res-card-pic" src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'+card.card.info.cloudinaryImageId}></img>
+                <h4 className='cuisine'>{card.card.info.cuisines.join(',')}</h4>
+                <h5><span className='ratings'>{card.card.info.avgRating}</span>&nbsp;&nbsp;&nbsp;Stars</h5>
+                <h5>38 minutes</h5>
+            </div>
+
+    )
+}
+
+const BodyComponent = () => {
+    return (
+        <div className='body'>
+            <div className='search'>
+                Search
+            </div>
+            <div className='res-container'>
+                {
+                   resData.map((restaurant , index) => <RestaurantCards key={restaurant.card.card.info.id} resDetails={restaurant} />) 
+                   
+                }
+                
+            </div>
+        </div>
+        )
+    
+}
+
+const AppComponent = () => {
+    return (
+        <div className="app">
+            <HeaderComponent/>
+            <BodyComponent />
         </div>
     )
 }
 
-console.log(jsxHeading)
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-// root.render(jsxHeading)
-root.render(<HeadingComp/>)
+root.render(<AppComponent/>)
