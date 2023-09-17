@@ -51,8 +51,21 @@
     height: 165px;
 }
 
-.search {
+.filter {
     padding: 10px;
+    margin: 10px;
+
+}
+
+.filter-btn {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.filter-all-btn {
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 4px;
 }
 
 .res-container {
