@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM, { createRoot } from 'react-dom/client'
 import { Header } from './components/Header'
 import { BodyComponent } from './components/BodyComponent'
@@ -6,7 +6,15 @@ import { createBrowserRouter , RouterProvider, Outlet} from 'react-router-dom';
 import { About } from '../src/components/About'
 import { Contact } from '../src/components/Contact'
 import  Error  from '../src/components/Error'
- 
+// import Grocery from './components/Grocery';
+// All below are same concept , we are implementing for Grocery app
+// Chunking
+// Code Splitting
+// Lazy Loading
+// Dynamic Bundle
+// On Demand loading
+
+const Grocery = lazy(() => import('./components/Grocery'))
 
 const AppComponent = () => {
     return (
@@ -35,6 +43,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/grocery",
+                element: <Suspense fallback={<h2>Loading............</h2>}><Grocery /></Suspense>
             }
             ],
             errorElement : <Error/>,
