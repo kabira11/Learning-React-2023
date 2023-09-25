@@ -39,6 +39,14 @@
     background: aliceblue;
     padding: 5px;
     margin: 5px;
+    border-radius: 4px;
+}
+
+.res-card:hover {
+
+    border: 1px solid rgb(13, 102, 197);
+    cursor: pointer;
+
 }
 
 .shimmer-card {
@@ -47,11 +55,6 @@
     background: aliceblue;
     padding: 5px;
     margin: 5px;
-}
-
-.res-card:hover {
-    border: 1px solid rgb(129, 100, 100);
-    cursor: pointer;
 }
 
 .res-card-pic {
@@ -94,6 +97,11 @@
 .search {
     margin-right: 4px;
 }
+
+a {
+    text-decoration: none !important;
+}
+
 
 
 

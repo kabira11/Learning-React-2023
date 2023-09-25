@@ -3,6 +3,7 @@ import { CDN_URL } from '../utils/constants'
 
 export const RestaurantCards = (props) => {
     const {resDetails } = props
+    console.log(resDetails)
   
     return (
             <div className='res-card'>

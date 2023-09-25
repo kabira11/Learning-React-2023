@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 // import { resData } from '../../assets/data'
 import { RestaurantCards } from "./RestaurantCards";
 import { Shimmer } from "./Shimmer";
+import { Link } from "react-router-dom";
 
 export const BodyComponent = () => {
   // State variable - Superpowerful variable
@@ -82,7 +83,10 @@ export const BodyComponent = () => {
       {restaurants?.length > 0 ? (
         <div className="res-container">
           {filterRes.map((restaurant, index) => (
-            <RestaurantCards key={restaurant.info.id} resDetails={restaurant} />
+            <Link to={"/restaurants/" + restaurant.info.id} key={restaurant.info.id}>
+              <RestaurantCards  resDetails={restaurant} />
+            </Link>
+            
           ))}
         </div>
       ) : (

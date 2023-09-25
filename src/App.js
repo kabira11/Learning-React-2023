@@ -6,6 +6,7 @@ import { createBrowserRouter , RouterProvider, Outlet} from 'react-router-dom';
 import { About } from '../src/components/About'
 import { Contact } from '../src/components/Contact'
 import  Error  from '../src/components/Error'
+import RestaurantMenu from './components/RestaurantMenu';
 // import Grocery from './components/Grocery';
 // All below are same concept , we are implementing for Grocery app
 // Chunking
@@ -43,6 +44,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/restaurants/:resId",
+                element: <RestaurantMenu />
             },
             {
                 path: "/grocery",
